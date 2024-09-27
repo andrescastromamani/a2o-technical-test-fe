@@ -1,27 +1,31 @@
-# A2oTechnicalTestFe
+## Getting Started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+Run project in a local environment
 
-## Development server
+### Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Node: ^18.19.1 || ^20.11.1 || ^22.0.0
+* Npm: 10.2.3
+* Angular CLI: 18.2.6 (Opcional)
 
-## Code scaffolding
+### Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repo
+   * Open your terminal or command prompt.
+   * Navigate to your desired project directory.
+   * Use the git clone command to clone the repository.
+    ```sh
+    git clone https://github.com/andrescastromamani/a2o-technical-test-fe.git
+    ```
+2. Install NMP packages
+   * Navigate to your project folder.
+   * Run npm install to install npm packages.
+   ```sh
+   npm install
+   ```
+3. Execute project
+   ```sh
+   npm start
+   ```
+4. Navigate to http://localhost:4200/.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

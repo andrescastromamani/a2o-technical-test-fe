@@ -1,0 +1,51 @@
+<div class="bg-dark">
+    <div class="container-xxl">
+        <div class="wrapper">
+            <div class="mb-3">
+                <a routerLink="/problem-2">Go to problem 2</a>
+            </div>
+            <div class="inner">
+                <div class="title">
+                    <h5 class="fw-bold">Problem 1: Chess</h5>
+                    <div class="bg-warning p-3">
+                        <p class="m-0">n: the number of rows and columns</p>
+                        <p class="m-0">k: the number of obstacles</p>
+                        <p class="m-0">rq: the row number of the queen's position</p>
+                        <p class="m-0">cq: the column number of the queen's position</p>
+                        <p class="m-0">ro: the row number of the obstacle position</p>
+                        <p class="m-0">co: the column number of the obstacle position</p>
+                    </div>
+                </div>
+                <form [formGroup]="form">
+                    <div class="mb-3">
+                        <label for="input-1" class="form-label">
+                            Input
+                        </label>
+                        <textarea formControlName="input" class="form-control" id="input-1"
+                            placeholder="Insert data in this format&#10;n k&#10;rq cq&#10;ro1 co1&#10;ro2 co2&#10;..."
+                            rows="10">
+                        </textarea>
+                        <small class="block p-error" *ngIf="form.get('input')?.invalid && form.get('input')?.touched">
+                            <div class="text-danger" *ngIf="form.get('input')?.hasError('required')">
+                                Input is required.
+                            </div>
+                        </small>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary w-100" (click)="solve()" [disabled]="loading">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm">
+                            </span>
+                            {{loading ? 'Solving...': 'Solve'}}
+                        </button>
+                    </div>
+                </form>
+                @if (output) {
+                <p>Output</p>
+                <div class="output p-3">
+                    <pre id="output-1">{{output | json}}</pre>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
