@@ -3,6 +3,7 @@
 /*Custom styles*/
 .wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -15,4 +16,11 @@
     background: #fff;
     border-radius: 3px;
     padding: 25px;
+}
+
+.output{
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 4px;
+    color: #242424;
+    background: #F9F9F9;
 }
