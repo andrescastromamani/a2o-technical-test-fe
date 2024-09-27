@@ -1,10 +1,11 @@
 /**Core */
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 /**Models */
 import { ApiResponse } from '@core/models/api-response.model';
+import { ChessRequest } from '@core/models/chess-request.model';
 
 /**Envs */
 import { environment } from '@envs/environment.development';
@@ -12,7 +13,7 @@ import { environment } from '@envs/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class StringValueService {
+export class ChessService {
 
   /**Variables */
   private readonly URL = `${environment.api}`;
@@ -23,9 +24,7 @@ export class StringValueService {
   ) { }
 
   /**Services */
-  public getMaxValue(input: string): Observable<ApiResponse> {
-    let params = new HttpParams();
-    params = params.append('input', input);
-    return this.http.get<ApiResponse>(`${this.URL}/problem-2`, { params });
+  public getSquaresQueenAttack(chessRequest: ChessRequest): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.URL}/problem-1`, chessRequest);
   }
 }

@@ -1,6 +1,9 @@
 <div class="bg-dark">
     <div class="container-xxl">
         <div class="wrapper">
+            <div class="mb-3">
+                <a routerLink="/problem-1">Go to problem 1</a>
+            </div>
             <div class="inner">
                 <div class="title">
                     <h5 class="fw-bold">Problem 2: String value</h5>
@@ -16,7 +19,7 @@
                             formControlName="input" 
                             class="form-control" 
                             id="input-2"
-                            placeholder="Insert input value" 
+                            placeholder="abcabcddd" 
                             rows="10">
                         </textarea>
                         <small 
@@ -43,11 +46,8 @@
                     </div>
                 </form>
                 @if (output) {
-                <div>
-                    <pre 
-                        id="output-2">
-                        {{output | json}}
-                    </pre>
+                <div class="output p-3">
+                    <pre id="output-2">{{output | json}}</pre>
                 </div>
                 }
             </div>

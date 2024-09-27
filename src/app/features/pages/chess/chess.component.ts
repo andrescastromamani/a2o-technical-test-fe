@@ -9,12 +9,13 @@ import { ToastrService } from 'ngx-toastr';
 
 /**Models */
 import { ApiResponse } from '@core/models/api-response.model';
+import { ChessRequest } from '@core/models/chess-request.model';
 
 /**Services */
-import { StringValueService } from '@features/services/string-value.service';
+import { ChessService } from '@features/services/chess.service';
 
 @Component({
-  selector: 'app-string-value',
+  selector: 'app-chess',
   standalone: true,
   imports: [
     NgIf,
@@ -22,11 +23,10 @@ import { StringValueService } from '@features/services/string-value.service';
     RouterLink,
     ReactiveFormsModule,
   ],
-  templateUrl: './string-value.component.html',
-  styleUrl: './string-value.component.scss'
+  templateUrl: './chess.component.html',
+  styleUrl: './chess.component.scss'
 })
-
-export default class StringValueComponent {
+export default class ChessComponent {
 
   /**Variables */
   form!: FormGroup;
@@ -35,8 +35,8 @@ export default class StringValueComponent {
 
   /**Injects */
   private formBuilder = inject(FormBuilder);
+  private chessService = inject(ChessService);
   private toastrService = inject(ToastrService);
-  private stringValueService = inject(StringValueService);
 
   /**Lifecycle */
   ngOnInit(): void {
@@ -53,15 +53,33 @@ export default class StringValueComponent {
   /**Actions */
   public solve() {
     if (this.form.valid) {
-      this.getMaxValueService(this.form.value.input);
+      let input: string = this.form.value.input;
+      let chessRequest: ChessRequest = this.parseData(input.trim());
+      this.getSquaresQueenAttackService(chessRequest);
     }
     this.form.markAllAsTouched();
   }
 
+  /**Utils */
+  private parseData(input: string): ChessRequest {
+    const lines = input.split('\n').map(line => line.trim());
+    const [n, k] = lines[0].split(' ').map(Number);
+    const [rq, cq] = lines[1].split(' ').map(Number);
+    const obstacles = lines.slice(2).map(line => line.split(' ').map(Number));
+    let chessRequest: ChessRequest = {
+      n: n,
+      k: k,
+      rq: rq,
+      cq: cq,
+      obstacles: obstacles ? obstacles : []
+    }
+    return chessRequest;
+  }
+
   /**API REST Services */
-  private getMaxValueService(input: string) {
+  private getSquaresQueenAttackService(chessRequest: ChessRequest) {
     this.loading = true;
-    this.stringValueService.getMaxValue(input).subscribe({
+    this.chessService.getSquaresQueenAttack(chessRequest).subscribe({
       next: (response: ApiResponse) => {
         this.loading = false;
         this.output = response;
