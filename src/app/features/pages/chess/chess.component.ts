@@ -83,7 +83,7 @@ export default class ChessComponent {
       next: (response: ApiResponse) => {
         this.loading = false;
         this.output = response;
-        this.toastrService.success('Se revolvio con exito', 'Exito');
+        this.toastrService.success('Successfully resolved', 'Success');
       },
       error: (error) => {
         this.output = error.error;

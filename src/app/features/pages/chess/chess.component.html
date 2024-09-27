@@ -18,7 +18,7 @@
                 </div>
                 <form [formGroup]="form">
                     <div class="mb-3">
-                        <label for="input-2" class="form-label">
+                        <label for="input-1" class="form-label">
                             Input
                         </label>
                         <textarea formControlName="input" class="form-control" id="input-1"
@@ -40,6 +40,7 @@
                     </div>
                 </form>
                 @if (output) {
+                <p>Output</p>
                 <div class="output p-3">
                     <pre id="output-1">{{output | json}}</pre>
                 </div>

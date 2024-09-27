@@ -8,17 +8,17 @@
     align-items: center;
     min-height: 100vh;
     width: 100%;
+
+    .inner {
+        width: 100%;
+        max-width: 500px;
+        background: #fff;
+        border-radius: 3px;
+        padding: 25px;
+    }
 }
 
-.wrapper .inner {
-    width: 100%;
-    max-width: 500px;
-    background: #fff;
-    border-radius: 3px;
-    padding: 25px;
-}
-
-.output{
+.output {
     border: 1px solid rgb(229, 229, 229);
     border-radius: 4px;
     color: #242424;

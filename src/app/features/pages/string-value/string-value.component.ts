@@ -53,7 +53,8 @@ export default class StringValueComponent {
   /**Actions */
   public solve() {
     if (this.form.valid) {
-      this.getMaxValueService(this.form.value.input);
+      let input: string = this.form.value.input;
+      this.getMaxValueService(input.trim());
     }
     this.form.markAllAsTouched();
   }
@@ -65,7 +66,7 @@ export default class StringValueComponent {
       next: (response: ApiResponse) => {
         this.loading = false;
         this.output = response;
-        this.toastrService.success('Se revolvio con exito', 'Exito');
+        this.toastrService.success('Successfully resolved', 'Success');
       },
       error: (error) => {
         this.output = error.error;
